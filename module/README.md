@@ -1,7 +1,7 @@
 # Hammerhead
 Hammerhead is a module for Python designed to interact with the Sharkey API.
 # Notice
-Hammerhead is not created by or endorsed by the Sharkey team! Hammerhead licensed under GPL-3.0. Hammerhead is under alpha, and may not work at times. Thank you :)
+Hammerhead is not created by, nor endorsed by the Sharkey team! Hammerhead licensed under GPL-3.0. Hammerhead is under alpha, and may not work at times. Thank you :)
 # Credits
 Thank you:
 
