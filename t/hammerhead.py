@@ -1,13 +1,16 @@
 import requests
 def sign_in(key, url):
-    if url.startswith("https://"):
+    global apiurl
+    global apikey
+    apiurl = url
+    apikey = key
+    if apiurl.startswith("https://"):
         apiurl = url
     else:
         apiurl = "https://" + url
-    return key, apiurl
+    return apiurl, apikey
 def create_post(post_content):
-    apiurl = sign_in().apiurl
-    apikey = sign_in().apikey
+    apiurl, apikey = sign_in()
     if apiurl.endswith("/"):
         posturl = apiurl + "api/notes/create"
     else:
