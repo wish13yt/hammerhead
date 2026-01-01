@@ -1,18 +1,12 @@
 import requests
 class signin:
     def __init__(self, key, url):
-        global apiurl
-        global apikey
-        apiurl = url
-        apikey = key
-        if not apiurl.startswith("https://"):
-            apiurl = "https://" + url
-        print(apiurl + " " + apikey)
+        self.apiurl = url
+        self.apikey = key
 class createpost:
     def __init__(self, post_content):
-            print(signin.apiurl)
-            apiurl = signin.apiurl
-            apikey = signin.apikey
+            apiurl = apiurl
+            apikey = apikey
             if apiurl.endswith("/"):
                 posturl = apiurl + "api/notes/create"
             else:
