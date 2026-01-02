@@ -1,3 +1,9 @@
-from hammerhead import signin, createpost
-signin(key="poOVzJZq67CnNldLlRZRTVdCHiF9hTbe", url="https://sharkey.nomaakip.xyz")
-createpost(post_content="bunny bunny bunny bunny")
+from hammerhead import SignIn, CreatePost
+
+session = SignIn(
+    key="key",
+    url="https://sharkey.nomaakip.xyz"
+)
+poster = CreatePost(session)
+test = poster.create("test")
+print(test)
