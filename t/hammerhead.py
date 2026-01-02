@@ -1,18 +1,40 @@
 import requests
-class signin:
+class SignIn:
     def __init__(self, key, url):
-        self.apiurl = url
+        self.apiurl = url.rstrip("/")
         self.apikey = key
-class createpost:
-    def __init__(self, post_content):
-            apiurl = apiurl
-            apikey = apikey
-            if apiurl.endswith("/"):
-                posturl = apiurl + "api/notes/create"
-            else:
-                posturl = apiurl + "/api/notes/create"
-            null = None
-            header = {'Authorization': 'Bearer ' + apikey}
-            payload = {"text": post_content,"poll": null,"cw": null,"localOnly": False,"visibility": "public","reactionAcceptance": "nonSensitiveOnly"}
-            rep = requests.post(posturl, headers=header, json=payload)
-            return rep.status_code
+class CreatePost:
+    def __init__(self, Session: SignIn):
+            self.apiurl = Session.apiurl
+            self.apikey = Session.apikey
+
+    def create(self, post_content):
+        posturl = self.apiurl + "/api/notes/create"
+        headers = {
+              "Authorization" : f"Bearer {self.apikey}"
+         }
+
+        payload = {
+            "text": post_content,
+            "poll": None,
+            "cw": None,
+            "localOnly": False,
+            "visibility": "public",
+            "reactionAcceptance": "nonSensitiveOnly"
+        }
+        request = requests.post(posturl, headers=headers, json=payload)
+        return request.status_code
+    
+"""
+ok so now that i fixed it wish this is how you use it since you're dumb hahaha
+
+from hammerhead import SignIn, CreatePost
+
+session = SignIn(
+    key="key",
+    url="https://sharkey.nomaakip.xyz"
+)
+poster = CreatePost(session)
+test = poster.create("test")
+print(test)
+"""
